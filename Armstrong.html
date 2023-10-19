@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: grey; color: white;">
+    <h1>Total digit Count Number</h1>
+    
+    <div>
+        <label>Number</label>
+        <input type="text" name="num" id="num">
+        <button type="submit" id="check">Check Digit</button>
+    </div>
+    <p id="result"></p>
+</body>
+<script>
+
+    document.querySelector("#check").addEventListener('click', ()=>{
+
+        const numberInput = document.querySelector("#num").value;
+        const resultElement = document.querySelector("#result");
+        let number = parseFloat(numberInput);
+        let rem = 0;
+        let rev = 0;
+        let n = number;
+
+        while (number > 0) {
+            rem = parseInt(number%10);
+            rev = parseInt(rev * 10 + rem);
+            number = parseInt(number /10);
+        }
+
+        if (n === rev) {
+            resultElement.textContent = ` Number is ${numberInput} and Palindrom number is ${n}`;
+        }
+        else{
+            resultElement.textContent = "It not pailindrom Number";
+        }
+    });
+
+</script>
+</html>
